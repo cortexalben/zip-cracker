@@ -25,7 +25,7 @@ def crack_pwd(source_file, min_length=1, characters=string.printable):
                     return print(f"{'*' * 50}\n[{count}] [SUCCESS] Password found: {''.join(pwd)}\n"
                                  f"It took {round((timeit.default_timer() - start_time), 5)} seconds to crack the password.\n{'*' * 50}")
                 except (RuntimeError, pyzipper.error, pyzipper.BadZipFile):
-                    print(f"[{count}] [FAIL] Password failed: {''.join(pwd)}")
+                    print(f"[{count}] [FAILURE] Password failed: {''.join(pwd)}")
                     count += 1
             min_length += 1
 

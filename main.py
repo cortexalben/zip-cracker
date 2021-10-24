@@ -5,10 +5,20 @@ import string
 
 
 def main():
+    """
+    Runs main.py script.
+    """
     global zip_file
     zip_file = input(f"{'*' * 40}\n{' ' * 9}Z I P   C R A C K E R\nCrack password of an encrypted zip file.\n\n"
                      f"Name of (or path to) the file: ")
-    min_limit = int(input("Minimum length of the password: "))
+    repeat_input = True
+    while repeat_input:
+        min_limit = int(input("Minimum length of the password: "))
+        if min_limit < 1:
+            print("\nMinimum length must be positive integer greater than or equal to 1. Please provide proper input.")
+        else:
+            repeat_input = False
+            pass
     crack_pwd(source_file=zip_file, min_length=min_limit, characters=string.ascii_lowercase)
 
 
